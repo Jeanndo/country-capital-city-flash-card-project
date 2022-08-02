@@ -1,23 +1,20 @@
-import React, { useRef } from "react";
+import React from "react";
 
-const FlashCard = ({ flashcard }) => {
-  const cardRef = useRef();
-
-  const handleFlip = () => {
-    console.log("flip", cardRef.current);
-    cardRef.current.transform = "rotateY(180deg)";
-  };
-
+const FlashCard = ({ flashcard, setIndexNumber }) => {
   return (
     <React.Fragment>
-      <div className="flip-card" onClick={handleFlip}>
-        <div className="flip-card-inner" ref={cardRef}>
+      <div className="flip-card">
+        <div className="flip-card-inner">
           <div className="flip-card-front">
-            <h4>{flashcard.question}</h4>
+            <h4>What is the capital city of {flashcard?.countryName}</h4>
+            <img
+              src="https://cdn.pixabay.com/photo/2015/08/17/19/58/question-892904_1280.png"
+              alt="question"
+            />
           </div>
           <div className="flip-card-back">
             <h1>Answer</h1>
-            <h5>{flashcard.answer}</h5>
+            <h5>{flashcard?.capitalCity}</h5>
           </div>
         </div>
       </div>

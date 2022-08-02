@@ -5,19 +5,31 @@
   width: 500px;
   height: 50px;
   outline-style: none;
-  border: 2px solid orange;
+  border: 2px solid #bbb;
+  margin-bottom: 5px;
+  border-radius: 3px;
 }
-.createBtn {
-  width: 200px;
+.create__continent div select {
+  width: 500px;
   height: 50px;
+  outline-style: none;
+  border: 2px solid #bbb;
+  margin-bottom: 5px;
+  border-radius: 3px;
+}
+.createCountry {
+  width: 100px;
+  height: 30px;
   border-style: none;
   background-color: orange;
+  border-radius: 3px;
 }
 .continent_cards {
   display: flex;
   flex-wrap: wrap;
 }
 .continent_card {
+  cursor: pointer;
   width: 300px;
   height: 150px;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
@@ -35,7 +47,7 @@
   outline-style: none;
   background-color: rgba(0, 0, 0, 0.627);
   color: orange;
-  margin-top: 50px;
+  margin-top: 20px;
 }
 
 .continent_card h1 {

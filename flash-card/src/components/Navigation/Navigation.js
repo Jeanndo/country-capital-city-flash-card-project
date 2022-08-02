@@ -2,9 +2,24 @@ import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import { useNavigate } from "react-router-dom";
+import { useQuery, useLazyQuery, useMutation, gql } from "@apollo/client";
 
-const Navigation = () => {
+const GET__ALL__CONTINENTS = gql`
+  query getAllContinents {
+    continents {
+      id
+      continentName
+      country {
+        capitalCity
+        countryName
+      }
+    }
+  }
+`;
+
+const Navigation = ({ setContinentId }) => {
   const navigate = useNavigate();
+  const { data, loading, error, refetch } = useQuery(GET__ALL__CONTINENTS);
 
   const handleLogin = () => {
     navigate("/continents");
@@ -20,13 +35,16 @@ const Navigation = () => {
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto nav-items">
             <Nav.Link href="#link">
-              <select className="continents__selection">
+              <select
+                className="continents__selection"
+                onChange={(event) => setContinentId(event.target.value)}
+              >
                 <option value={null}>--select Continent--</option>
-                <option value="Africa">Africa</option>
-                <option value="North America">North America</option>
-                <option value="South America">South America</option>
-                <option value="Europe">Europe</option>
-                <option value="Asia">Asia</option>
+                {data?.continents?.map((continent) => (
+                  <option value={continent?.id} key={continent?.id}>
+                    {continent?.continentName}
+                  </option>
+                ))}
               </select>
             </Nav.Link>
             <Nav.Link href="#link">
