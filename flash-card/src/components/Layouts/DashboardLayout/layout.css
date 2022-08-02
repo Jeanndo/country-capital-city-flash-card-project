@@ -1,0 +1,26 @@
+.layout__container {
+  display: flex;
+  margin-top: 100px;
+}
+.layout__container_sidebar {
+  display: flex;
+  flex-direction: column;
+  background-color: rgba(0, 0, 0, 0.66);
+  flex: 1;
+  margin-right: 50px;
+  padding: 40px;
+  height: 80vh;
+}
+.layout__container_sidebar a {
+  margin-bottom: 50px;
+}
+.layout__container_sidebar a button {
+  width: 200px;
+  background-color: orange;
+  border-style: none;
+  padding: 5px;
+}
+.layout__container__main_body {
+  flex: 5;
+  padding: 0px 50px;
+}
